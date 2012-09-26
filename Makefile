@@ -1,9 +1,10 @@
 UNAME := $(shell uname)
 ifeq ($(UNAME), Linux)
 all:
-	gcc -shared -fPIC forcedproxy.c -ldl -o forcedproxy.so
+	gcc -m64 -shared -fPIC forcedproxy.c -ldl -o x64/forcedproxy.so
+	gcc -m32 -shared -fPIC forcedproxy.c -ldl -o forcedproxy.so
 clean:
-	rm forcedproxy.so
+	rm x64/forcedproxy.so forcedproxy.so
 endif
 ifeq ($(UNAME), Darwin)
 all:
