@@ -8,7 +8,8 @@ clean:
 endif
 ifeq ($(UNAME), Darwin)
 all:
-	gcc -flat_namespace -dynamiclib -current_version 1.0 forcedproxy.c -o forcedproxy.dylib
+	gcc -m64 -flat_namespace -dynamiclib -current_version 1.0 forcedproxy.c -o x64/forcedproxy.dylib
+	gcc -m32 -flat_namespace -dynamiclib -current_version 1.0 forcedproxy.c -o forcedproxy.dylib
 clean:
-	rm forcedproxy.dylib
+	rm x64/forcedproxy.dylib forcedproxy.dylib
 endif
