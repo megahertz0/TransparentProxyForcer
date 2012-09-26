@@ -1,0 +1,4 @@
+LIBRARY
+EXPORTS
+connect=proxyconnect @4
+WSAConnect=proxyWSAConnect @42
