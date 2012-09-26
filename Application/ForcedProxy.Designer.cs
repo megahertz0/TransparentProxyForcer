@@ -1,4 +1,4 @@
-﻿namespace TransparentProxyForcer
+namespace TransparentProxyForcer
 {
     partial class ForcedProxy
     {
@@ -167,4 +167,3 @@
         private System.Windows.Forms.CheckBox persistent;
     }
 }
-

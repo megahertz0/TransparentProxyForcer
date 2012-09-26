@@ -1,6 +1,7 @@
 // dllmain.cpp : Defines the entry point for the DLL application.
 #include "stdafx.h"
 #include <winsock2.h>
+#include <ws2tcpip.h>
 #include <stdio.h>
 #include <windows.h>
 #include <stdlib.h>
@@ -56,6 +57,22 @@ void proxy(struct sockaddr *name) {
 			ipv4->sin_addr.s_addr = inet_addr(proxyName);
 			ipv4->sin_port = htons(8443);
 		}
+	} else if(intercept && name->sa_family == AF_INET6) {
+	/*
+		char proxyName6[32] ;
+		strcpy_s(proxyName6, "0:0:0:0:0:FFFF:");
+		strcat_s(proxyName6, proxyName);
+		struct sockaddr_in6 *ipv6 = (struct sockaddr_in6 *)name;
+		if(ntohs(ipv6->sin6_port) == 80) {
+			struct in6_addr addr;
+			ipv6->sin6_addr = addr;
+			inet_pton(AF_INET6, proxyName6, &ipv6->sin6_addr);
+			ipv6->sin6_port = htons(8080);
+		} else if(ntohs(ipv6->sin6_port) == 443) {
+			inet_pton(AF_INET6, proxyName6, &ipv6->sin6_addr);
+			ipv6->sin6_port = htons(8443);
+		}
+	*/
 	}
 }
 

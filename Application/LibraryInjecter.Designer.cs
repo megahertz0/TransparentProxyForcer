@@ -1,4 +1,4 @@
-﻿namespace TransparentProxyForcer
+namespace TransparentProxyForcer
 {
     partial class LibraryInjecter
     {
